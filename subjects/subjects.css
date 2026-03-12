@@ -71,16 +71,16 @@ body {
   text-decoration: none;
 }
 
-#learned-logo {
+#ITW-logo {
   flex: 0 0 auto;
 }
 
-#learned-logo a {
+#ITW-logo a {
   display: inline-flex;
   align-items: center;
 }
 
-#learned-logo img {
+#ITW-logo img {
   width: 132px !important;
   height: auto;
   display: block;
@@ -615,7 +615,7 @@ footer .btn {
     display: none;
   }
 
-  .nav #learned-logo {
+  .nav #ITW-logo {
     margin: 0 auto 0 0;
     transform: none;
   }
@@ -653,7 +653,7 @@ footer .btn {
     padding: 14px 16px;
   }
 
-  #learned-logo img {
+  #ITW-logo img {
     width: 112px !important;
   }
 
