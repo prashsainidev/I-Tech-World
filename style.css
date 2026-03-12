@@ -1456,13 +1456,20 @@ footer .btn:hover {
   }
   nav .menu {
     display: block !important;
+	margin-left: auto;
+	font-size: 28px;
   }
   .get-started {
 	display: none;
   }
   nav {
-    padding-bottom: 20px;
+    padding: 16px 22px;
     border-bottom: 1px solid #0005;
+	justify-content: space-between;
+	gap: 16px;
+  }
+  #logo {
+	flex: 0 0 auto;
   }
   .quote p,
   .quote h5,
@@ -1486,6 +1493,7 @@ footer .btn:hover {
   .head-container {
 	margin-top: 150px;
 	padding: 0 18px;
+	justify-content: center;
   }
 
   .diffSection .content {
@@ -1587,6 +1595,21 @@ footer .btn:hover {
 
   .identity {
 	width: 100%;
+	flex-direction: column;
+	align-items: center;
+	gap: 10px;
+  }
+
+  .identity p,
+  .identity h6 {
+	width: 100%;
+  }
+
+  .identity .rating {
+	display: flex;
+	justify-content: center;
+	gap: 4px;
+	width: 100%;
   }
 
   .rev-cont {
@@ -1596,6 +1619,22 @@ footer .btn:hover {
   .rev-cont #title,
   .rev-cont #content {
 	text-align: left;
+  }
+
+  .back-contact {
+	transform: none;
+	padding: 0 18px 28px;
+	margin-top: 0;
+  }
+
+  .cc {
+	width: min(100%, 560px);
+	max-width: 100%;
+  }
+
+  .csec {
+	top: 240px;
+	height: 220px;
   }
 
   .title2 {
