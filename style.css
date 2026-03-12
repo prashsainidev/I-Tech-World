@@ -46,7 +46,7 @@ body.menu-open::before {
 }
 
 header {
-	height: 90vh;
+	min-height: 90vh;
 	/* background: #000; */
 }
 
@@ -1377,6 +1377,53 @@ footer .btn:hover {
 
 /* Responsive styles */
 
+@media only screen and (max-width: 1100px) {
+  .head-container {
+	margin-top: 170px;
+	gap: 28px;
+  }
+
+  .quote,
+  .about-content .side-text {
+	width: min(100%, 640px);
+  }
+
+  .svg-image img {
+	width: min(100%, 460px);
+  }
+
+  .diffSection .content {
+	padding: 10px 48px;
+  }
+
+  .extra p {
+	font-size: clamp(2.8rem, 7vw, 4.2rem);
+	padding: 26px 24px 150px;
+  }
+
+  .smbox {
+	transform: translateY(-70px);
+	padding: 0 18px;
+  }
+
+  .smbox span {
+	padding: 26px 30px;
+  }
+
+  .service-swipe .s-card {
+	width: min(100%, 320px);
+  }
+
+  .rev-container {
+	padding: 10px 32px;
+  }
+
+  .rev-container .rev-card {
+	width: min(100%, 720px);
+	height: auto;
+  }
+}
+
 /* Up to 960px */
 @media only screen and (max-width: 960px) {
   .footer-container {
@@ -1427,13 +1474,143 @@ footer .btn:hover {
 	justify-content: center;
   }
   .quote p {
-    font-size: 30px;
+    font-size: clamp(2.4rem, 6vw, 3.3rem);
   }
   .service-container .right-side img {
     width: 90%;
   }
   .title {
     margin-top: 0;
+  }
+
+  .head-container {
+	margin-top: 150px;
+	padding: 0 18px;
+  }
+
+  .diffSection .content {
+	padding: 10px 28px;
+	font-size: 1rem;
+  }
+
+  .about-content {
+	gap: 20px;
+	padding: 0 18px;
+  }
+
+  .about-content .side-text {
+	width: 100%;
+	padding: 30px 24px;
+	text-align: left;
+	transform: none;
+	opacity: 1;
+  }
+
+  .sideImage {
+	transform: none;
+	opacity: 1;
+  }
+
+  .about-content .side-image {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+  }
+
+  .about-content .side-image img {
+	width: min(100%, 560px);
+  }
+
+  #courses_section > center > p,
+  #suggested_courses_section > center > p,
+  #about_section > center > p,
+  #portfolio_section > center > p,
+  #services_section > center > p,
+  #review_section > center > p,
+  #contactus_section > h2 {
+	font-size: clamp(2.4rem, 6vw, 3.4rem) !important;
+	padding: 56px 24px 28px !important;
+  }
+
+  #review_section > center > p {
+	padding-bottom: 22px !important;
+  }
+
+  .cbox .det {
+	width: min(100%, 290px);
+  }
+
+  .extra p {
+	background-attachment: scroll;
+	padding: 24px 24px 120px;
+  }
+
+  .smbox .data {
+	font-size: clamp(3.6rem, 12vw, 5rem);
+  }
+
+  .smbox .det {
+	font-size: 1rem;
+  }
+
+  .service-swipe {
+	background-attachment: scroll;
+	padding: 16px 18px 46px;
+  }
+
+  .service-swipe a {
+	width: min(100%, 360px);
+  }
+
+  .service-swipe .s-card {
+	width: 100%;
+	height: auto;
+	min-height: 170px;
+	padding: 20px 18px;
+	gap: 18px;
+  }
+
+  .service-swipe .s-card img {
+	width: 84px;
+  }
+
+  .rev-container {
+	padding: 10px 18px 32px;
+  }
+
+  .rev-container .rev-card {
+	flex-direction: column;
+	align-items: center;
+	padding: 22px 18px;
+	gap: 14px;
+  }
+
+  .identity {
+	width: 100%;
+  }
+
+  .rev-cont {
+	width: 100%;
+  }
+
+  .rev-cont #title,
+  .rev-cont #content {
+	text-align: left;
+  }
+
+  .title2 {
+	margin: 90px 24px 0;
+  }
+
+  .feedbox {
+	padding: 32px 20px;
+	background-attachment: scroll;
+	justify-content: center;
+  }
+
+  .feed {
+	width: min(100%, 720px);
+	height: auto;
   }
 }
 
@@ -1504,10 +1681,169 @@ footer .btn:hover {
 	.user p span {
 	  font-size: 12px;
 	}
+	.head-container {
+	  margin-top: 128px;
+	  gap: 18px;
+	}
+	header {
+	  height: auto;
+	  min-height: 0;
+	  padding-bottom: 32px;
+	}
+	.quote {
+	  transform: none;
+	  width: 100%;
+	}
+	.quote p {
+	  font-size: clamp(2rem, 12vw, 3.1rem);
+	  line-height: 1.05;
+	}
+	.quote h5 {
+	  font-size: 1rem;
+	  line-height: 1.8;
+	}
+	.hero-actions {
+	  flex-direction: column;
+	  align-items: stretch;
+	}
+	.primary-cta,
+	.secondary-cta {
+	  width: 100%;
+	}
+	.play {
+	  justify-content: center;
+	  flex-wrap: wrap;
+	  gap: 10px;
+	}
+	.play span a {
+	  margin-left: 0;
+	}
+	.svg-image img {
+	  width: 100%;
+	  margin: 0;
+	  border-width: 6px;
+	  border-radius: 24px;
+	}
+	#courses_section > center > p,
+	#suggested_courses_section > center > p,
+	#about_section > center > p,
+	#portfolio_section > center > p,
+	#services_section > center > p,
+	#review_section > center > p,
+	#contactus_section > h2 {
+	  font-size: clamp(2rem, 11vw, 2.9rem) !important;
+	  padding: 42px 20px 18px !important;
+	  line-height: 1.04 !important;
+	}
+	.diffSection .content {
+	  padding: 6px 20px;
+	}
+	.diffSection .content p {
+	  font-size: 1rem;
+	  line-height: 1.8;
+	  text-align: center;
+	}
+	.extra p {
+	  font-size: clamp(2.4rem, 13vw, 3.4rem);
+	  line-height: 1.05;
+	  padding: 24px 18px 96px;
+	}
+	.smbox {
+	  transform: translateY(-42px);
+	  gap: 14px;
+	}
+	.smbox span {
+	  width: min(100%, 300px);
+	  margin: 0;
+	  padding: 24px 18px;
+	}
+	.about-content .side-text {
+	  padding: 24px 18px;
+	  border-radius: 20px;
+	}
+	.about-content .side-text h2 {
+	  font-size: 1.9rem;
+	  line-height: 1.1;
+	}
+	.about-content .side-text p {
+	  font-size: 0.98rem;
+	  line-height: 1.9;
+	}
+	.cbox {
+	  gap: 12px;
+	  padding: 0 14px;
+	}
+	.cbox .det,
+	.cbox .det a {
+	  min-height: 88px;
+	}
+	.cbox .det a {
+	  font-size: 1.05rem;
+	  padding: 18px 16px;
+	}
+	.card-container .card {
+	  width: min(100%, 340px);
+	  margin: 18px 12px;
+	  padding: 24px 18px 26px;
+	}
+	.card-title {
+	  font-size: 1.75rem;
+	}
+	.detail p,
+	#detail p {
+	  max-width: none;
+	  font-size: 0.98rem;
+	}
+	.service-swipe {
+	  gap: 14px;
+	  padding: 10px 14px 36px;
+	}
+	.service-swipe .s-card {
+	  flex-direction: column;
+	  justify-content: center;
+	  min-height: 210px;
+	  text-align: center;
+	}
+	.service-swipe .s-card p {
+	  font-size: 1.05rem;
+	  line-height: 1.45;
+	}
+	#makeitfull {
+	  transform: translateY(18px);
+	}
+	#makeitfull img {
+	  width: 42px;
+	}
+	.review {
+	  padding-top: 10px;
+	}
+	.rev-container .rev-card {
+	  width: 100%;
+	  padding: 18px 16px;
+	}
+	.identity img {
+	  width: 100px;
+	  height: 100px;
+	}
+	.identity p,
+	.identity h6 {
+	  width: 100%;
+	}
+	.rev-cont #content {
+	  font-size: 0.98rem;
+	  line-height: 1.8;
+	}
+	.csec {
+	  height: 180px;
+	  top: 140px;
+	  transform: skewY(-7deg);
+	}
 	.back-contact {
 	  flex-direction: column;
 	  padding: 0 10px;
 	  justify-content: center;
+	  transform: translateY(0);
+	  margin-top: 12px;
 	}
 	.cc {
 	  width: 90%;
@@ -1535,6 +1871,44 @@ footer .btn:hover {
 	#csubmit {
 	  padding: 15px;
 	  font-size: 14px;
+	}
+	.title2 {
+	  margin: 70px 18px 0;
+	  text-align: center;
+	}
+	.title2 span {
+	  font-size: clamp(2.1rem, 11vw, 3rem);
+	  line-height: 1.05;
+	}
+	.title2 .shortdesc2 {
+	  padding: 12px 0 0;
+	  font-size: 1rem;
+	}
+	.feedbox {
+	  padding: 26px 14px;
+	}
+	.feed {
+	  width: 100%;
+	  padding: 0;
+	}
+	.feed form {
+	  padding: 18px;
+	}
+	.feed form input,
+	.feed textarea {
+	  width: 100%;
+	}
+	.feed form label {
+	  position: static;
+	  display: block;
+	  margin-bottom: 8px;
+	  font-size: 12px;
+	}
+	.feed form input {
+	  margin-bottom: 18px;
+	}
+	.feed form textarea {
+	  height: 120px;
 	}
   }
   
