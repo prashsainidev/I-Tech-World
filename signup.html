@@ -1,34 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="shortcut icon" type="png" href="images/icon/favicon.png">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign Up - I Tech World</title>
-  <link rel="stylesheet" href="./login.css" />
+  <link rel="shortcut icon" type="image/svg+xml" href="assets/images/branding/itw-favicon.svg">
+  <link rel="stylesheet" href="auth.css">
 </head>
 <body>
-  <div class="auth-container">
-    <!-- <h2>Sign Up for iTech World</h2> -->
-    <!-- Container where the Clerk sign-up widget will mount -->
-    <div id="sign-up-container"></div>
-  </div>
+  <main class="auth-page">
+    <header class="auth-header">
+      <a class="brand" href="index.html"><img src="assets/images/branding/itw-brand-lockup.svg" alt="I Tech World"></a>
+      <a class="back-home" href="login.html">Back to Access Page</a>
+    </header>
 
-  <!-- Include Clerk's JS SDK -->
-  <script async crossorigin="anonymous"
-    data-clerk-publishable-key="pk_test_ZmluZXItdHJvdXQtMjAuY2xlcmsuYWNjb3VudHMuZGV2JA"
-    src="https://finer-trout-20.clerk.accounts.dev/npm/@clerk/clerk-js@latest/dist/clerk.browser.js"
-    type="text/javascript"></script>
+    <section class="auth-layout">
+      <div class="auth-panel">
+        <h1>Static sign up page kept only for the website flow.</h1>
+        <p>This lets the website feel complete while still staying a pure frontend project. There is no database, no backend, and no real account registration.</p>
+      </div>
 
-  <script>
-    window.addEventListener('load', async function () {
-      await Clerk.load();
-      // Mount the sign-up widget with custom routing options:
-      Clerk.mountSignUp(document.getElementById('sign-up-container'), {
-        afterSignUpUrl: 'index.html',
-        signInUrl: '/signin.html'  // Directly pass your custom login page URL
-      });
-    });
-  </script>
+      <div class="auth-card">
+        <h2>Create Account</h2>
+        <p class="subtext">Use this page as a visual-only signup screen for your static deployment.</p>
+
+        <form class="auth-form">
+          <div>
+            <label for="signup-name">Full Name</label>
+            <input id="signup-name" type="text" placeholder="Enter your full name">
+          </div>
+          <div>
+            <label for="signup-email">Email</label>
+            <input id="signup-email" type="email" placeholder="Enter your email">
+          </div>
+          <div>
+            <label for="signup-password">Password</label>
+            <input id="signup-password" type="password" placeholder="Create a password">
+          </div>
+          <button class="auth-submit" type="button" onclick="window.location.href='signin.html'">Create Account</button>
+        </form>
+
+        <p class="auth-note">Static demo only. Clicking the button only opens the sign in page.</p>
+        <p class="auth-footer-link">Already have an account? <a href="signin.html">Open Sign In</a></p>
+      </div>
+    </section>
+  </main>
 </body>
 </html>

@@ -1,158 +1,333 @@
+function onReady(callback) {
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", callback);
+    return;
+  }
+
+  callback();
+}
 
 function scrollAppear() {
-  var introText = document.querySelector('.side-text');
-  var sideImage = document.querySelector('.sideImage');
-  var introPosition = introText.getBoundingClientRect().top;
-  var imagePosition = sideImage.getBoundingClientRect().top;
-  
+  var introText = document.querySelector(".side-text");
+  var sideImage = document.querySelector(".sideImage");
+
+  if (!introText || !sideImage) {
+    return;
+  }
+
   var screenPosition = window.innerHeight / 1.2;
 
-  if(introPosition < screenPosition) {
-    introText.classList.add('side-text-appear');
+  if (introText.getBoundingClientRect().top < screenPosition) {
+    introText.classList.add("side-text-appear");
   }
-  if(imagePosition < screenPosition) {
-    sideImage.classList.add('sideImage-appear');
+
+  if (sideImage.getBoundingClientRect().top < screenPosition) {
+    sideImage.classList.add("sideImage-appear");
   }
 }
 
-window.addEventListener('scroll', scrollAppear);
+function updateNavbarShadow() {
+  var nav = document.querySelector("nav");
 
-// For switching between navigation menus in mobile mode
+  if (!nav) {
+    return;
+  }
+
+  nav.classList.toggle("black", window.scrollY > 10);
+}
+
+var lastScrollY = 0;
+function updateNavbarVisibility() {
+  var nav = document.querySelector("nav");
+
+  if (!nav) {
+    return;
+  }
+
+  var currentScrollY = window.scrollY;
+  var isScrollingDown = currentScrollY > lastScrollY;
+  var shouldHide = isScrollingDown && currentScrollY > 120;
+
+  nav.classList.toggle("nav-hidden", shouldHide);
+  lastScrollY = currentScrollY;
+}
+
+function searchCourses() {
+  var input = document.getElementById("searchInput");
+  var resultsBox = document.getElementById("searchResults");
+
+  if (!input || !resultsBox) {
+    return;
+  }
+
+  var query = input.value.trim().toLowerCase();
+
+  if (!query) {
+    resultsBox.innerHTML = "";
+    resultsBox.classList.remove("active");
+    return;
+  }
+
+  var searchableLinks = Array.from(
+    document.querySelectorAll("a[href]")
+  ).filter(function (link) {
+    var href = link.getAttribute("href");
+    var text = link.textContent.trim();
+
+    return href && text && href !== "#";
+  });
+
+  var uniqueMatches = [];
+  var seen = new Set();
+
+  searchableLinks.forEach(function (link) {
+    var text = link.textContent.trim().toLowerCase();
+    var href = link.getAttribute("href");
+    var key = text + "::" + href;
+
+    if (!text.includes(query) || seen.has(key)) {
+      return;
+    }
+
+    seen.add(key);
+    uniqueMatches.push(link);
+  });
+
+  var matches = uniqueMatches.slice(0, 6);
+
+  if (!matches.length) {
+    resultsBox.innerHTML = '<p class="search-empty">No matching sections found.</p>';
+    resultsBox.classList.add("active");
+    return;
+  }
+
+  resultsBox.innerHTML = matches.map(function (link) {
+    return '<a href="' + link.getAttribute("href") + '">' + link.textContent.trim() + "</a>";
+  }).join("");
+  resultsBox.classList.add("active");
+}
+
 var i = 2;
 function switchTAB() {
-	var x = document.getElementById("list-switch");
-	if(i%2 == 0) {
-		document.getElementById("list-switch").style= "display: grid; height: 50vh; margin-left: 5%;";
-		document.getElementById("search-switch").style= "display: block; margin-left: 5%;";
-	}else {
-		document.getElementById("list-switch").style= "display: none;";
-		document.getElementById("search-switch").style= "display: none;";
-	}
-	i++;
+  var list = document.getElementById("list-switch");
+  var search = document.getElementById("search-switch");
+
+  if (!list || !search) {
+    return;
+  }
+
+  if (i % 2 === 0) {
+    list.style = "display: grid; height: 50vh; margin-left: 5%;";
+    search.style = "display: block; margin-left: 5%;";
+  } else {
+    list.style = "display: none;";
+    search.style = "display: none;";
+  }
+
+  i++;
 }
 
-// For LOGIN
-var x = document.getElementById("login");
-var y = document.getElementById("register");
-var z = document.getElementById("btn");
-var a = document.getElementById("log");
-var b = document.getElementById("reg");
-var w = document.getElementById("other");
+function getLoginElements() {
+  return {
+    x: document.getElementById("login"),
+    y: document.getElementById("register"),
+    z: document.getElementById("btn"),
+    a: document.getElementById("log"),
+    b: document.getElementById("reg"),
+    w: document.getElementById("other")
+  };
+}
 
 function register() {
-  x.style.left = "-400px";
-  y.style.left = "50px";
-  z.style.left = "110px";
-  w.style.visibility = "hidden";
-  b.style.color = "#fff";
-  a.style.color = "#000";
+  var elements = getLoginElements();
+
+  if (!elements.x || !elements.y || !elements.z || !elements.a || !elements.b || !elements.w) {
+    return;
+  }
+
+  elements.x.style.left = "-400px";
+  elements.y.style.left = "50px";
+  elements.z.style.left = "110px";
+  elements.w.style.visibility = "hidden";
+  elements.b.style.color = "#fff";
+  elements.a.style.color = "#000";
 }
 
 function login() {
-  x.style.left = "50px";
-  y.style.left = "450px";
-  z.style.left = "0px";
-  w.style.visibility = "visible";
-  a.style.color = "#fff";
-  b.style.color = "#000";
+  var elements = getLoginElements();
+
+  if (!elements.x || !elements.y || !elements.z || !elements.a || !elements.b || !elements.w) {
+    return;
+  }
+
+  elements.x.style.left = "50px";
+  elements.y.style.left = "450px";
+  elements.z.style.left = "0px";
+  elements.w.style.visibility = "visible";
+  elements.a.style.color = "#fff";
+  elements.b.style.color = "#000";
 }
 
-// CheckBox Function
-function goFurther(){
-  if (document.getElementById("chkAgree").checked == true) {
-    document.getElementById('btnSubmit').style = 'background: linear-gradient(to right, #FA4B37, #DF2771);';
+function goFurther() {
+  var agree = document.getElementById("chkAgree");
+  var submitButton = document.getElementById("btnSubmit");
+
+  if (!agree || !submitButton) {
+    return;
   }
-  else{
-    document.getElementById('btnSubmit').style = 'background: lightgray;';
-  }
+
+  submitButton.style = agree.checked
+    ? "background: linear-gradient(to right, #FA4B37, #DF2771);"
+    : "background: lightgray;";
 }
 
 function google() {
-  	window.location.assign("https://accounts.google.com/signin/v2/identifier?service=accountsettings&continue=https%3A%2F%2Fmyaccount.google.com%2F%3Futm_source%3Dsign_in_no_continue&csig=AF-SEnbZHbi77CbAiuHE%3A1585466693&flowName=GlifWebSignIn&flowEntry=AddSession", "_blank");
+  window.open("https://accounts.google.com/", "_blank", "noopener,noreferrer");
 }
 
-// QUIZ Page
 function quizt(frame) {
-  document.getElementById('f1').style='display: none;';
-  document.getElementById('f2').style='display: none;';
-  document.getElementById('f3').style='display: none;';
-  document.getElementById('f4').style='display: none;';
-  document.getElementById('f5').style='display: none;';
-  document.getElementById('f6').style='display: none;';
-  document.getElementById('f7').style='display: none;';
-  document.getElementById('f8').style='display: none;';
-  document.getElementById('f9').style='display: none;';
-  document.getElementById('f10').style='display: none;';
-  document.getElementById('f11').style='display: none;';
-  if(frame == 1) document.getElementById('f1').style = 'display: block';
-  else if(frame == 2) document.getElementById('f2').style = 'display: block';
-  else if(frame == 3) document.getElementById('f3').style = 'display: block';
-  else if(frame == 4) document.getElementById('f4').style = 'display: block';
-  else if(frame == 5) document.getElementById('f5').style = 'display: block';
-  else if(frame == 6) document.getElementById('f6').style = 'display: block';
-  else if(frame == 7) document.getElementById('f7').style = 'display: block';
-  else if(frame == 8) document.getElementById('f8').style = 'display: block';
-  else if(frame == 9) document.getElementById('f9').style = 'display: block';
-  else if(frame == 10) document.getElementById('f10').style = 'display: block';
-  else if(frame == 11) document.getElementById('f11').style = 'display: block'; 
-  else alert('error');
+  for (var index = 1; index <= 11; index++) {
+    var frameElement = document.getElementById("f" + index);
+
+    if (frameElement) {
+      frameElement.style = "display: none;";
+    }
+  }
+
+  var activeFrame = document.getElementById("f" + frame);
+
+  if (activeFrame) {
+    activeFrame.style = "display: block;";
+  }
 }
 
 function startquiz() {
-  document.getElementById('title').style = 'display: none;'; 
+  var title = document.getElementById("title");
+  var panel = document.getElementById("panel");
+  var left = document.getElementById("left");
+  var right = document.getElementById("right");
 
-  document.getElementById('panel').style = 'display: inline-flex;'; 
-  document.getElementById('left').style = 'display: block;'; 
-  document.getElementById('right').style = 'display: block;'; 
+  if (title) {
+    title.style = "display: none;";
+  }
+
+  if (panel) {
+    panel.style = "display: inline-flex;";
+  }
+
+  if (left) {
+    left.style = "display: block;";
+  }
+
+  if (right) {
+    right.style = "display: block;";
+  }
 }
+
 function searchdisplay() {
-  document.getElementById('searchpanel').style.display="block";
+  var panel = document.getElementById("searchpanel");
+
+  if (panel) {
+    panel.style.display = "block";
+  }
 }
 
 function display(n) {
-  var img1 = document.getElementById('img1');
-  var img2 = document.getElementById('img2');
-  var img3 = document.getElementById('img3');
-  var img4 = document.getElementById('img4');
-  var s1 = document.getElementById('s1');
-  var s2 = document.getElementById('s2');
-  var s3 = document.getElementById('s3');
-  var s4 = document.getElementById('s4');
+  var imageIds = ["img1", "img2", "img3", "img4"];
+  var switchIds = ["s1", "s2", "s3", "s4"];
 
-  img1.style = 'display: none;';
-  img2.style = 'display: none;';
-  img3.style = 'display: none;';
-  img4.style = 'display: none;';
-  s1.style = 'background: #DF2771; color: #FFF;';
-  s2.style = 'background: #DF2771; color: #FFF;';
-  s3.style = 'background: #DF2771; color: #FFF;';
-  s4.style = 'background: #DF2771; color: #FFF;';
+  imageIds.forEach(function (id) {
+    var element = document.getElementById(id);
+    if (element) {
+      element.style = "display: none;";
+    }
+  });
 
-  if(n==1) {
-    img1.style = 'display: block;';
-    s1.style = 'background: #E5E8EF; color: #DF2771;';
+  switchIds.forEach(function (id) {
+    var element = document.getElementById(id);
+    if (element) {
+      element.style = "background: #DF2771; color: #FFF;";
+    }
+  });
+
+  var activeImage = document.getElementById("img" + n);
+  var activeSwitch = document.getElementById("s" + n);
+
+  if (activeImage) {
+    activeImage.style = "display: block;";
   }
-  if(n==2) {
-    img2.style = 'display: block;';
-    s2.style = 'background: #E5E8EF; color: #DF2771;';
+
+  if (activeSwitch) {
+    activeSwitch.style = "background: #E5E8EF; color: #DF2771;";
   }
-  if(n==3) {
-    img3.style = 'display: block;';
-    s3.style = 'background: #E5E8EF; color: #DF2771;';
-  }
-  if(n==4) {
-    img4.style = 'display: block;';
-    s4.style = 'background: #E5E8EF; color: #DF2771;';
-  } 
 }
 
 function sideMenu(toggle) {
-  const menu = document.getElementById('side-menu');
-  if (toggle === 0) {
-    menu.style.transform = 'translateX(0)';
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
-  } else {
-    menu.style.transform = 'translateX(-100%)';
-    document.body.style.overflow = 'auto'; // Restore scrolling
+  var menu = document.getElementById("side-menu");
+  var backdrop = document.getElementById("menu-backdrop");
+
+  if (!menu) {
+    return;
   }
+
+  if (toggle === 0) {
+    menu.classList.add("is-open");
+    if (backdrop) {
+      backdrop.classList.add("is-open");
+    }
+    document.body.classList.add("menu-open");
+    return;
+  }
+
+  menu.classList.remove("is-open");
+  if (backdrop) {
+    backdrop.classList.remove("is-open");
+  }
+  document.body.classList.remove("menu-open");
 }
+
+onReady(function () {
+  updateNavbarShadow();
+  updateNavbarVisibility();
+  scrollAppear();
+
+  window.addEventListener("scroll", scrollAppear);
+  window.addEventListener("scroll", updateNavbarShadow);
+  window.addEventListener("scroll", updateNavbarVisibility);
+
+  var searchInput = document.getElementById("searchInput");
+  var searchResults = document.getElementById("searchResults");
+
+  if (searchInput) {
+    searchInput.addEventListener("input", searchCourses);
+    searchInput.addEventListener("keydown", function (event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        searchCourses();
+      }
+    });
+  }
+
+  document.addEventListener("click", function (event) {
+    if (!searchResults || !searchInput) {
+      return;
+    }
+
+    if (!searchResults.contains(event.target) && event.target !== searchInput) {
+      searchResults.classList.remove("active");
+    }
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+      sideMenu(1);
+    }
+  });
+
+  var sideMenuLinks = document.querySelectorAll("#side-menu a[href]");
+  sideMenuLinks.forEach(function (link) {
+    link.addEventListener("click", function () {
+      sideMenu(1);
+    });
+  });
+});

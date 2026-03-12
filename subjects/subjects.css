@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:500&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Dancing+Script&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap');
 
 * {
 	box-sizing: border-box;
@@ -11,8 +9,8 @@ html {
 	scroll-behavior: smooth;
 }
 body {
-	background: #FFF;
-	font-family: 'Open Sans', sans-serif;
+	background: linear-gradient(180deg, #fbf7f2 0%, #f2e8de 100%);
+	font-family: 'Manrope', sans-serif;
 }
 
 /*SCROLLBAR Styling*/
@@ -46,7 +44,7 @@ body {
 .nav li, a, button
 {
 	float: left;
-	font-family: "Montserrat", sans-serif;
+	font-family: "Sora", sans-serif;
 	font-weight: 500;
 	font-size: 13px;
 	color: #2E3D49;
@@ -139,13 +137,13 @@ body {
 }
 .title span{
 	font-weight: 700;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Sora', sans-serif;
 	font-size: 60px;
 	color: #2E3D49;
 }
 .title .shortdesc {
 	padding: 10px;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Manrope', sans-serif;
 	font-size: 20px;
 	color: #2E3D49;
 	margin-bottom: 50px;
@@ -165,19 +163,21 @@ body {
 .cbox .det {
 	height: 60px;
 	margin: 10px;
-	background: #fff;
+	background: rgba(255,255,255,0.78);
 	cursor: pointer;
 	border-radius: 50px;
+	box-shadow: 0 14px 28px rgba(16, 42, 67, 0.08);
 }
 .cbox .det a{
 	justify-content: space-around;
 	width: 100%;
 	padding: 20px;
 	border-radius: 50px;
-	border: 1px solid #FA4B37;
-	font-size: 15px;
-	color: #272529;
-	font-family: cursive;
+	border: 1px solid rgba(16, 42, 67, 0.18);
+	font-size: 16px;
+	color: #102A43;
+	font-family: 'Sora', sans-serif;
+	font-weight: 600;
 	text-decoration: none;
 }
 
@@ -188,7 +188,7 @@ body {
 
 .inbt {
 	padding: 10px;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Sora', sans-serif;
 	font-size: 30px;
 	color: #2E3D49;
 	margin: 100px;
@@ -256,13 +256,13 @@ body {
 }
 .title2 span{
 	font-weight: 700;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Sora', sans-serif;
 	font-size: 30px;
 	color: #2E3D49;
 }
 .title2 .shortdesc2 {
 	padding: 10px;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Manrope', sans-serif;
 	font-size: 15px;
 	color: #2E3D49;
 	margin-bottom: 10px;
@@ -451,7 +451,7 @@ footer .social-media img{
 footer .logo {
 	width: 180px;
 	color: #fff;
-	font-family: 'Montserrat', cursive;
+	font-family: 'Sora', sans-serif;
 }
 footer .social-media{
 	margin: 20px 0;

@@ -1,73 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<link rel="shortcut icon" type="png" href="images/icon/favicon.png">
-	<title>User Login SignUp</title>
-	<link rel="stylesheet" type="text/css" href="Login style.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-  <!-- It will redirect to the Home Page after submitting the form -->
-  <script>
-  $(document).ready(function(){
-    $("form").submit(function(){
-      alert("Great Job !");
-    });
-  });
-  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Started - I Tech World</title>
+  <link rel="shortcut icon" type="image/svg+xml" href="assets/images/branding/itw-favicon.svg">
+  <link rel="stylesheet" href="auth.css">
 </head>
 <body>
-		<div class="form-box">
-			<div class="button-box">
-				<div id="btn"></div>
-				<button type="button" class="toggle-btn" id="log" onclick="login()" style="color: #fff;">Log In</button>
-				<button type="button" class="toggle-btn" id="reg" onclick="register()">Register</button>
-			</div>
-			<div class="social-icons">
-				<a href="https://www.facebook.com/login/">
-				<img src="images/icon/fb2.png">
-				</a>
+  <main class="auth-page">
+    <header class="auth-header">
+      <a class="brand" href="index.html"><img src="assets/images/branding/itw-brand-lockup.svg" alt="I Tech World"></a>
+      <a class="back-home" href="index.html">Back to Home</a>
+    </header>
 
-				<a href="https://www.instagram.com/accounts/login/?hl=en">
-				<img src="images/icon/insta2.png">
-				</a>
-				
-				<a href="https://twitter.com/i/flow/login">
-				<img src="images/icon/tt2.png">
-				</a>
-			</div>
-			
-			<!-- Login Form -->
-			<form id="login" class="input-group" action="Main index.html">
-				<div class="inp">
-					<img src="images/icon/user.png"><input type="text" id="email" class="input-field" placeholder="Username or Phone Number" style="width: 88%; border:none;" required="required">
-				</div>
-				<div class="inp">
-					<img src="images/icon/password.png"><input type="password" id="password" class="input-field" placeholder="Password" style="width: 88%; border: none;" required="required">
-				</div>
-				<input type="checkbox" class="check-box">Remember Password
-				<button type="submit" class="submit-btn">Log In</button>
-			</form>
+    <section class="auth-layout">
+      <div class="auth-panel">
+        <h1>Welcome to the static access area of I Tech World.</h1>
+        <p>This page is kept only for frontend presentation. You can move to sign in or sign up screens, but no real account creation or authentication happens here.</p>
 
+        <div class="auth-highlights">
+          <div class="auth-highlight">
+            <span>Frontend only</span>
+            <p>These screens are purely UI pages for a static website flow.</p>
+          </div>
+          <div class="auth-highlight">
+            <span>Deployment safe</span>
+            <p>No backend dependency, no API integration, and no live form submission.</p>
+          </div>
+        </div>
+      </div>
 
-			<div class="other" id="other">
-				<div class="instead">
-					<h3>or</h3>
-				</div>
-				<button class="connect" onclick="google()">
-					<img src="images/icon/google.png"><span>Sign in with Google</span>
-				</button>
-			</div>
-			
-			<!-- Registration Form -->
-			<form id="register" class="input-group">
-				<input type="text" class="input-field" placeholder="Full Name" required="required">
-				<input type="email" class="input-field" placeholder="Email Address" required="required">
-				<input type="password" class="input-field" placeholder="Create Password" name="psame" required="required">
-				<input type="password" class="input-field" placeholder="Confirm Password" name="psame" required="required">
-				<input type="checkbox" class="check-box" id="chkAgree" onclick="goFurther()">I agree to the Terms & Conditions
-				<button type="submit" id="btnSubmit" class="submit-btn reg-btn">Register</button>
-			</form>
-		</div>
-		<script type="text/javascript" src="Login script.js"></script>
+      <div class="auth-card">
+        <h2>Choose a page</h2>
+        <p class="subtext">Use the options below to open the static sign in and sign up screens.</p>
+
+        <div class="auth-actions">
+          <a class="auth-link-card" href="signin.html">Open Sign In Page</a>
+          <a class="auth-link-card" href="signup.html">Open Sign Up Page</a>
+          <a class="auth-link-card" href="index.html">Continue to Homepage</a>
+        </div>
+
+        <p class="auth-note">Demo only. These links are for navigation and layout preview.</p>
+      </div>
+    </section>
+  </main>
 </body>
 </html>

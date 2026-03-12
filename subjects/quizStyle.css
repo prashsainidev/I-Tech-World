@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:500&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Dancing+Script&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap');
 
 * {
 	box-sizing: border-box;
@@ -11,9 +9,9 @@ html {
 	scroll-behavior: smooth;
 }
 body {
-	background: url(../images/extra/b1.jpg);
+	background: url(../assets/images/backgrounds/b1.jpg);
 	background-size: cover;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Manrope', sans-serif;
 }
 
 /*Styling SCROLLBAR*/
@@ -47,7 +45,7 @@ body {
 .nav li, a, button
 {
 	float: left;
-	font-family: "Montserrat", sans-serif;
+	font-family: "Sora", sans-serif;
 	font-weight: 500;
 	font-size: 13px;
 	color: #2E3D49;
@@ -144,13 +142,13 @@ body {
 }
 .title span{
 	font-weight: 700;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Sora', sans-serif;
 	font-size: 60px;
 	/*color: #2E3D49;*/
 	color: #fff;
 }
 .title .shortdesc {
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Manrope', sans-serif;
 	font-size: 20px;
 	color: #efefef;
 	margin-bottom: 50px;
@@ -227,7 +225,7 @@ body {
 	border: none;
 }
 .main-frame {
-	background: url(../images/extra/quiz.jpg);
+	background: url(../assets/images/backgrounds/quiz.jpg);
 	background-size: cover;
 	background-position: center;
 }
